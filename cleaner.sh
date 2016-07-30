@@ -1,6 +1,10 @@
 #!/bin/bash
 # Cleans up desktop. Sorts files by extensions and stores them in temporary files.
 
+echo "Here are a list of file extensions that exist on your desktop: "
+
+find . -type f -maxdepth 1 -name '*.*' | sed 's|.*\.||' | sort -u
+
 echo "What file extensions would you like to clean up? (e.g. txt png mov)"
 read ext_variable
 
