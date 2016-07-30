@@ -1,7 +1,7 @@
 #!/bin/bash
 # Cleans up desktop. Sorts files by extensions and stores them in temporary files.
 
-echo "What file extensions would you like to move clean up? (e.g. txt png mov)"
+echo "What file extensions would you like to clean up? (e.g. txt png mov)"
 read ext_variable
 
 if [ -d "temporary_files" ]
