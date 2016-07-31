@@ -3,12 +3,12 @@
 
 echo "Here are a list of file extensions that exist on your desktop: "
 
-find . -type f -maxdepth 1 -name '*.*' | sed 's|.*\.||' | sort -u
+find ~/desktop -type f -maxdepth 1 -name '*.*' | sed 's|.*\.||' | sort -u
 
 echo "What file extensions would you like to clean up? (e.g. txt png mov)"
 read ext_variable
 
-if [ -d "temporary_files" ]
+if [ -d "~/desktop/temporary_files" ]
 	then
 	echo "temporary_files directory already exists."
 else
@@ -18,7 +18,7 @@ fi
 
 for ext in $ext_variable
 do
-	if [ -d temporary_files/temp_$ext ]
+	if [ -d ~/desktop/temporary_files/temp_$ext ]
 		then
 		echo temp_$ext "already exists"
 	else
@@ -26,7 +26,7 @@ do
 		mkdir ~/desktop/temporary_files/temp_$ext
 	fi
 
-	count=`ls -1 *.$ext 2>/dev/null | wc -l`
+	count=`ls -1 *.$ext ~/desktop | wc -l`
 
 	if [ $count != 0 ]
 		then
